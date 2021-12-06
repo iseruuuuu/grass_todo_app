@@ -43,7 +43,7 @@ class GrassCellItem extends StatelessWidget {
         ],
       ),
       child: ListTile(
-        onTap: onTap, // TODO:RouterにIDを渡してタスク編集画面に遷移
+        //onTap: onTap, // TODO:RouterにIDを渡してタスク編集画面に遷移
         title: Text(
           todo.description,
           style: todo.done

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:good_design_todo_app/component/grass_button.dart';
 import '../../component/grass_cell_item.dart';
 import 'home_screen_controller.dart';
 
@@ -19,7 +20,7 @@ class HomeScreen extends StatelessWidget {
         child: Stack(
           children: [
             Image.asset(
-              "assets/background2.jpeg",
+              "assets/background.gif",
               fit: BoxFit.fill,
               height: double.infinity,
               width: double.infinity,
@@ -73,9 +74,9 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => controller.addTodo('ああ'),
-        child: const Icon(Icons.add),
+      floatingActionButton: GrassButton(
+        onTap: () {},
+        //onTap: controller.onTap,
       ),
     );
   }

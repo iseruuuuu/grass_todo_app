@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
 import 'package:good_design_todo_app/model/todo.dart';
+import 'package:good_design_todo_app/screen/add/add_screen_controller.dart';
+
+import '../add/add_screen.dart';
 
 class HomeScreenController extends GetxController {
   final _todos = <Todo>[].obs;
@@ -34,5 +37,9 @@ class HomeScreenController extends GetxController {
   // 完了タスクを一括削除
   void deleteDone() {
     _todos.removeWhere((e) => e.done == true);
+  }
+
+  void onTap() {
+    Get.to(() => const AddScreen());
   }
 }
