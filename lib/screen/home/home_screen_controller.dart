@@ -7,7 +7,6 @@ class HomeScreenController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _todos.addAll(Todo.initialTodos);
   }
 
   List<Todo> get todos => _todos; // TODO:フィルタの状態によって返すTodoを変える

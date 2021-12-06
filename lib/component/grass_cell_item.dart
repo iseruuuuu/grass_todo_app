@@ -44,10 +44,6 @@ class GrassCellItem extends StatelessWidget {
       ),
       child: ListTile(
         onTap: onTap, // TODO:RouterにIDを渡してタスク編集画面に遷移
-        leading: const Icon(
-          Icons.circle,
-          color: Colors.white,
-        ), // TODO:TodoCheckboxウィジェットの作成
         title: Text(
           todo.description,
           style: todo.done
