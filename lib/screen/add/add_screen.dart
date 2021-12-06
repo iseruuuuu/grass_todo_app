@@ -54,7 +54,7 @@ class _AddTodoPageState extends State<AddScreen> {
         child: Stack(
           children: [
             Image.asset(
-              "assets/background.gif",
+              "assets/ground.gif",
               fit: BoxFit.fill,
               height: double.infinity,
               width: double.infinity,
