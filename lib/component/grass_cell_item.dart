@@ -7,7 +7,7 @@ class GrassCellItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GlassmorphicFlexContainer(
       borderRadius: 20,
-      blur: 20,
+      blur: 0,
       padding: const EdgeInsets.all(10),
       alignment: Alignment.bottomCenter,
       border: 2,

@@ -10,6 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(HomeScreenController(), tag: '');
+    final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       body: SizedBox(
         height: double.infinity,
@@ -26,10 +27,10 @@ class HomeScreen extends StatelessWidget {
             SafeArea(
               child: Center(
                 child: GlassmorphicContainer(
-                  width: 350,
-                  height: 750,
+                  width: deviceSize.width - 30,
+                  height: deviceSize.height - 150,
                   borderRadius: 20,
-                  blur: 20,
+                  blur: 10,
                   alignment: Alignment.bottomCenter,
                   border: 2,
                   linearGradient: LinearGradient(
@@ -66,6 +67,10 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
       ),
     );
   }
