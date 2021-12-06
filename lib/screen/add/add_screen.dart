@@ -100,6 +100,11 @@ class _AddTodoPageState extends State<AddScreen> {
                               autofocus: true,
                               decoration: const InputDecoration(
                                 hintText: 'タスク入力',
+                                hintStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
                                 fillColor: Colors.white,
                                 hoverColor: Colors.white,
                                 border: InputBorder.none,
