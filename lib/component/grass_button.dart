@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 class GrassButton extends StatelessWidget {
   const GrassButton({
@@ -10,12 +11,19 @@ class GrassButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 70,
-      height: 70,
+    return Container(
+      width: 80,
+      height: 80,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.white,
+          width: 3,
+        ),
+        borderRadius: BorderRadius.circular(100),
+      ),
       child: FloatingActionButton(
-        backgroundColor: Colors.grey,
-        elevation: 50,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         onPressed: onTap,
         child: const Icon(
           Icons.add,
