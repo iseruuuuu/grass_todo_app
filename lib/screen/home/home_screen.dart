@@ -53,17 +53,19 @@ class HomeScreen extends StatelessWidget {
                       const Color((0xFFFFFFFF)).withOpacity(0.5),
                     ],
                   ),
-                  child: ListView.builder(
-                    itemCount: todos.length,
-                    itemBuilder: (context, index) {
-                      final todo = todos[index];
-                      return GrassCellItem(
-                        todo: todo,
-                        onTap: () =>
-                            controller.addTodo(todos[index].description),
-                        onTapDelete: () => controller.remove(todo),
-                      );
-                    },
+                  child: Obx(
+                    () => ListView.builder(
+                      itemCount: todos.length,
+                      itemBuilder: (context, index) {
+                        final todo = todos[index];
+                        return GrassCellItem(
+                          todo: todo,
+                          onTap: () =>
+                              controller.addTodo(todos[index].description),
+                          onTapDelete: () => controller.remove(todo),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),
@@ -72,7 +74,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => controller.addTodo('ああ'),
         child: const Icon(Icons.add),
       ),
     );
