@@ -48,15 +48,22 @@ class GrassCellItem extends StatelessWidget {
           todo.description,
           style: todo.done
               ? const TextStyle(
-                  color: Colors.grey,
+                  color: Colors.white,
                   fontSize: 30,
                   decoration: TextDecoration.lineThrough,
                 )
-              : const TextStyle(fontSize: 30),
+              : const TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
         ),
         trailing: IconButton(
           onPressed: onTapDelete, // TODO:削除確認用のバナーを表示させる
-          icon: const Icon(Icons.delete),
+          icon: const Icon(
+            Icons.delete,
+            color: Colors.white,
+          ),
         ),
       ),
     );
