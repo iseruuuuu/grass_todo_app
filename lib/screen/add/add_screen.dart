@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:good_design_todo_app/component/add_button.dart';
 import '';
 import '../../model/todo.dart';
 import '../home/home_screen_controller.dart';
@@ -43,9 +44,9 @@ class _AddTodoPageState extends State<AddScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // 既存編集ならID、新規作成なら「新規タスク」と表示
-        title: Text('id: ${(todo?.id ?? '新規タスク')}'),
+      appBar: PreferredSize(
+        preferredSize: Size.zero,
+        child: AppBar(),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
@@ -70,26 +71,16 @@ class _AddTodoPageState extends State<AddScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  child: const Text('キャンセル'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
+                const Spacer(),
+                AddButton(
+                  onTap: () {
                     final text = textController.text;
                     if (todo == null && text.isNotEmpty) {
                       todoController.addTodo(text); // 新規追加
-                    } else if (todo != null) {
-                      //todoController.updateText(text, todo!); // 既存更新
-                    }
-                    // TODO:ブラウザから直接アクセスした場合に対応
+                    } else if (todo != null) {}
                     Get.back();
                   },
-                  child: Text(
-                    todo == null ? '追加' : '更新',
-                  ),
+                  text: todo == null ? '追加' : '更新',
                 ),
               ],
             ),

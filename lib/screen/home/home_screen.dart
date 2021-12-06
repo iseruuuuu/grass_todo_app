@@ -75,8 +75,8 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: GrassButton(
-        onTap: () {},
-        //onTap: controller.onTap,
+        //onTap: () {},
+        onTap: controller.onTap,
       ),
     );
   }
