@@ -107,7 +107,8 @@ class _AddTodoPageState extends State<AddScreen> {
                               ),
                               style: const TextStyle(
                                 color: Colors.white,
-                                  fontSize: 25,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
                               ),
                               maxLines: null, // 行数に制限なし
                             ),
