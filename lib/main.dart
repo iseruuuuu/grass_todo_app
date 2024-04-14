@@ -14,8 +14,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      //home: Homee(),
-      home: HomeScreen(),
+      home: Homee(),
+      //home: HomeScreen(),
     );
   }
 }

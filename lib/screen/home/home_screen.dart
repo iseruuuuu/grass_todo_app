@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:good_design_todo_app/component/grass_button.dart';
-import '../../component/grass_cell_item.dart';
+import 'package:good_design_todo_app/component/grass_cell_item2.dart';
+import '../../model/todo.dart';
 import 'home_screen_controller.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({
+    Key? key,
+    this.todo,
+  }) : super(key: key);
+
+  final Todo? todo;
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(HomeScreenController(), tag: '');
+    final controller = Get.put(HomeScreenController(), tag: todo?.description);
     final todos = controller.todos;
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
@@ -32,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                   width: deviceSize.width - 30,
                   height: deviceSize.height - 150,
                   borderRadius: 20,
-                  blur: 10,
+                  blur: 0,
                   alignment: Alignment.bottomCenter,
                   border: 2,
                   linearGradient: LinearGradient(
@@ -54,19 +60,27 @@ class HomeScreen extends StatelessWidget {
                       const Color((0xFFFFFFFF)).withOpacity(0.5),
                     ],
                   ),
-                  child: Obx(
-                    () => ListView.builder(
-                      itemCount: todos.length,
-                      itemBuilder: (context, index) {
-                        final todo = todos[index];
-                        return GrassCellItem(
-                          todo: todo,
-                          onTap: () =>
-                              controller.addTodo(todos[index].description),
-                          onTapDelete: () => controller.remove(todo),
-                        );
-                      },
-                    ),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Obx(
+                          () => ListView.builder(
+                            itemCount: todos.length,
+                            itemBuilder: (context, index) {
+                              final todo = todos[index];
+                              return GrassCellItem2(
+                                todo: todo,
+                                onTap: () => controller
+                                    .addTodo(todos[index].description),
+                                onTapDelete: () => controller.remove(todo),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                      GrassCellItem2(
+                          todo: todos[0], onTap: () {}, onTapDelete: () {}),
+                    ],
                   ),
                 ),
               ),
